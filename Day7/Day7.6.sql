@@ -1,0 +1,10 @@
+select * from employee where salary>40000;
+ select * from employee where salary <( select avg(salary) from employee);
+ select * from employee where salary=(select max(salary) from employee);
+ select * from employee where salary=(select min(salary) from employee);
+ select * from employee where department =(select department from employee where name ='amit');
+select * from employee where department in (select department from employee where salary > 45000);
+ select * from employee where salary > all(select salary from employee where department='hr');
+ select * from employee where salary >any (select salary from employee where department='sales');
+ select department from employee group by department having avg(salary)>(select avg(salary) from employee );
+ select * from employee where department <> 'it';
